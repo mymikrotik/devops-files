@@ -1,7 +1,7 @@
 #!/bin/bash
 # MikroTik CHR Installer
 
-CHR_URL="https://github.com/mymikrotik/mikrotik-devops-files/raw/main/files/chr-7.16.2.img.zip"
+CHR_URL="https://github.com/mymikrotik/mikrotik-devops-files/raw/main/files/chr-7.16.2-patched.img.zip"
 
 [[ $EUID -ne 0 ]] && echo "Run as root!" && exit 1
 

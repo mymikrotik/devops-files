@@ -12,12 +12,18 @@ apt update && apt install curl wget unzip -y
 
 
 
-Install :
+Install CHR:
 
 ```
-bash <(curl -sSL https://raw.githubusercontent.com/mymikrotik/mikrotik-devops-files/refs/heads/main/scripts/install-chr.sh)
+bash <(curl -sSL https://github.com/mymikrotik/mikrotik-devops-files/raw/main/scripts/install-chr.sh)
 ```
 
 
+
+
+
+Install CHR Patched:
+
+    bash <(curl -sSL https://github.com/mymikrotik/mikrotik-devops-files/raw/main/scripts/install-chr-patched.sh)
 
 
