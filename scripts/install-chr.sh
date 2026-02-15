@@ -5,6 +5,16 @@ CHR_URL="https://github.com/mymikrotik/mikrotik-devops-files/raw/main/files/chr-
 
 [[ $EUID -ne 0 ]] && echo "Run as root!" && exit 1
 
+# Ensure wget and unzip are installed
+MISSING_PKGS=()
+command -v wget &> /dev/null || MISSING_PKGS+=("wget")
+command -v unzip &> /dev/null || MISSING_PKGS+=("unzip")
+
+if [ ${#MISSING_PKGS[@]} -gt 0 ]; then
+    echo "Installing missing packages: ${MISSING_PKGS[*]}"
+    apt-get update -qq && apt-get install -y "${MISSING_PKGS[@]}"
+fi
+
 DISK=$(lsblk -dno NAME,TYPE | awk '$2=="disk"{print "/dev/"$1; exit}')
 
 mkdir -p /tmp/chr
